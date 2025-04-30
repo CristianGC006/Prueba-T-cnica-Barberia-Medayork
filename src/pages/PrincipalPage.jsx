@@ -5,3 +5,4 @@ const PrincipalPage = () => {
         </h1>
     )
 }
+export default PrincipalPage;
