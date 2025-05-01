@@ -6,6 +6,8 @@ import ButtonForms from "../../components/ButtonForms";
 const Login = () => {
   //Estados:
   const [showRegister, setShowRegister] = useState(true);
+  //Url de la API:
+  const urlApi="https://barbersfakeapi.onrender.com/customers"
   //Estados para el formulario:
   const [values, setValues] = useState({
     name: "",
@@ -25,11 +27,29 @@ const Login = () => {
     });
   };
 
-  const handleForm=(event) => {
+  const handleForm=async (event) => {
     event.preventDefault();
-    console.log(values);
-    
-  }
+    try{
+        const respone= await fetch(urlApi,{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify(values)
+        })
+        
+        if(!respone.ok){
+            throw new Error("Error en la respuesta de la API")
+        }
+        const data= await respone.json();
+        console.log("Usuario registrado:", data);
+        alert("Usuario registrado con éxito")
+    } catch(error){
+        console.error("Error al registrar el usuario:", error);
+        alert("Error al registrar el usuario, por favor intenta de nuevo más tarde.")
+    }
+} 
+  
   return (
     <section className="forms">
       {showRegister ? (
