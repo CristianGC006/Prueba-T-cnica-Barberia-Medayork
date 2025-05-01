@@ -1,6 +1,175 @@
-const Login=()=>{
-    return(
-        <h1>Hola soy el registro</h1>
-    )
-}
+//Imports
+import { useState } from "react";
+import "./Login.css";
+import ButtonForms from "../../components/ButtonForms";
+//Component
+const Login = () => {
+  //Estados:
+  const [showRegister, setShowRegister] = useState(true);
+  //Estados para el formulario:
+  const [values, setValues] = useState({
+    name: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    address: "",
+    password: "",
+    confirmPassword: "",
+  });
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setValues({
+      ...values,
+      [name]: value,
+    });
+  };
+
+  const handleForm=(event) => {
+    event.preventDefault();
+    console.log(values);
+    
+  }
+  return (
+    <section className="forms">
+      {showRegister ? (
+        <form className="form-register" onSubmit={handleForm}>
+          <span className="icon-register"></span>
+          <h1 className="title-register">Regístrate</h1>
+          <div className="register-input-container">
+            <label htmlFor="name">Nombre</label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Nombre"
+              onChange={handleInputChange}
+              required
+            />
+          </div>
+          <div className="register-input-container">
+            <label htmlFor="lastName">Apellido</label>
+            <input
+              type="text"
+              name="lastName"
+              id="lastName"
+              placeholder="Apellido"
+              onChange={handleInputChange}
+              required
+            />
+          </div>
+          <div className="register-input-container">
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="correo@correo.com"
+                onChange={handleInputChange}
+              required
+            />
+          </div>
+          <div className="register-input-container">
+            <label htmlFor="phone">Teléfono</label>
+            <input
+              type="tel"
+              name="phone"
+              id="phone"
+              placeholder="1234567890"
+                onChange={handleInputChange}
+              required
+            />
+          </div>
+          <div className="register-input-container">
+            <label htmlFor="address">Dirección</label>
+            <input
+              type="text"
+              name="address"
+              id="address"
+              placeholder="Calle 123"
+                onChange={handleInputChange}
+              required
+            />
+          </div>
+          <div className="register-input-container">
+            <label htmlFor="password">Contraseña</label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="********"
+                onChange={handleInputChange}
+              required
+            />
+          </div>
+          <div className="register-input-container">
+            <label htmlFor="confirmPassword">Confirmar Contraseña</label>
+            <input
+              type="password"
+              name="confirmPassword"
+              id="confirmPassword"
+              placeholder="********"
+                onChange={handleInputChange}
+              required
+            />
+          </div>
+          <div className="register-button-container">
+            <ButtonForms type="submit" content="Registrarse"></ButtonForms>
+          </div>
+          <section className="accountChange">
+            <p
+              onClick={() => setShowRegister(false)}
+              style={{ cursor: "pointer" }}
+            >
+              ¿Ya tienes cuenta?
+            </p>
+          </section>
+        </form>
+      ) : (
+        <form className="form-login">
+          <span className="icon-register"></span>
+          <h1 className="title-login">Iniciar Sesión</h1>
+          <div className="login-input-container">
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="correo@correo.com"
+              required
+            />
+          </div>
+          <div className="login-input-container">
+            <label htmlFor="password">Contraseña</label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="********"
+              required
+            />
+          </div>
+          <div className="button-container">
+            <ButtonForms
+              onClick={() => {
+                /* handle login */
+              }}
+              type="submit"
+              content={"Iniciar Sesion"}
+            ></ButtonForms>
+          </div>
+          <section className="accountChange">
+            <a
+              onClick={() => setShowRegister(true)}
+              style={{ cursor: "pointer" }}
+            >
+              ¿No tienes cuenta? Regístrate
+            </a>
+          </section>
+        </form>
+      )}
+    </section>
+  );
+};
+
 export default Login;
