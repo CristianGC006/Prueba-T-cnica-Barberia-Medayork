@@ -2,6 +2,7 @@
 import { useState } from "react";
 import "./Login.css";
 import ButtonForms from "../../components/ButtonForms";
+import { genericAlert } from "../../helpers/functions";
 //Component
 const Login = () => {
   //Estados:
@@ -39,14 +40,14 @@ const Login = () => {
         })
         
         if(!respone.ok){
-            throw new Error("Error en la respuesta de la API")
+            genericAlert("Error", "Error al registrar el usuario", "error");
+            throw new Error();
         }
-        const data= await respone.json();
-        console.log("Usuario registrado:", data);
-        alert("Usuario registrado con éxito")
+        await respone.json();
+        genericAlert("Éxito", "Usuario registrado con éxito", "success");
     } catch(error){
-        console.error("Error al registrar el usuario:", error);
-        alert("Error al registrar el usuario, por favor intenta de nuevo más tarde.")
+        genericAlert("Error", "Error al registrar el usuario, por favor intenta de nuevo más tarde.", "error");
+        throw error;
     }
 } 
   

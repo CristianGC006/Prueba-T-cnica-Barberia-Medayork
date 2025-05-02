@@ -10,13 +10,11 @@
 body{
     font-family: 'Sansation', sans-serif;
     color: white;
-    margin: 0; /* Elimina márgenes */
-    overflow: hidden; /* Evita barras de desplazamiento innecesarias */
+    margin: 0; 
     height: 100%;
-    background-image: url('../../../public/backgroundForm.jpg'); /* Ruta de la imagen */
-    background-size: cover; /* Escala la imagen para cubrir todo el fondo */
-    background-position: center; /* Centra la imagen */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    z-index: -1; 
+    
+    
 }
 
 .forms{
@@ -24,7 +22,12 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-top: 1%;
+    width: 100%;
+    height: 100vh;
+    background-image: url('../../../public/backgroundForm.jpg'); 
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat; 
 }
 h1{
     font-family: 'Cal Sans', sans-serif;
@@ -56,15 +59,16 @@ h1{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: #000;
+    background-color: #0000008e;
     width: 100%;
     max-width: 650px;
     height: 100%;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px #FFD700;
+    box-shadow: 0 0 10px #848282;
     color: white;
 }
+
 .register-input-container{
     display: flex;
     flex-direction: column;
@@ -170,7 +174,7 @@ h1{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: #000;
+    background-color: #00000098;
     width: 100%;
     max-width: 650px;
     height: 100%;
@@ -185,7 +189,7 @@ h1{
     justify-content: center;
     width: 85%;
     padding: 4px 0px;
-    margin:5px 0px;
+    margin:10px 0px;
     border:none;
     border-radius: 5px;
     background-color: #121111;
