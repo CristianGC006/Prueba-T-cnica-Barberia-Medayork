@@ -7,13 +7,14 @@ export function genericAlert(tittle,message,icon) {
       });
 }
 
-export function redirectionAlert(title,message,imgUrl){
+export function redirectionAlert(title,message,imgUrl,){
     Swal.fire({
         title: title,
         text: message,
         imageUrl: imgUrl,
         imageWidth: 400,
         imageHeight: 200,
+        timmeout: 2000,
         imageAlt: "Barbers Medayork"
       });
 }

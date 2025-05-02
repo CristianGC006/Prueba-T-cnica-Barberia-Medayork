@@ -1,4 +1,5 @@
 import PrincipalPage from "../pages/PrincipalPage";
+import UserHome from "../pages/UserHome";
 import Login from "../pages/auth/Login";
 
 /*Rutas para el flujo de la App*/ 
@@ -10,5 +11,9 @@ export let routes=[
     {
         path:"login",
         element:<Login/>
+    },
+    {
+        path:"userHome",
+        element:<UserHome/>
     }
 ]

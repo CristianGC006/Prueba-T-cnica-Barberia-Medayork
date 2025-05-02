@@ -1,8 +1,10 @@
 //Imports
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Login.css";
 import ButtonForms from "../../components/ButtonForms";
-import { genericAlert } from "../../helpers/functions";
+import { generateToken, genericAlert, redirectionAlert } from "../../helpers/functions";
+import { useNavigate } from "react-router-dom";
+
 //Component
 const Login = () => {
   //Estados:
@@ -19,6 +21,42 @@ const Login = () => {
     password: "",
     confirmPassword: "",
   });
+  //Login data
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [customers, setCustomers] = useState([]);
+  let navigate=useNavigate();
+  //Funciones para manejar el formulario:
+
+  function getCustomers() {
+    fetch(urlApi)
+    .then((Response)=> Response.json())
+    .then((data)=> setCustomers(data))
+  }
+  useEffect(() => {
+    getCustomers();
+  }, [])
+  
+  function getCustomer(){
+    let customer=customers.find(
+      (item)=> item.email===email && item.password===password
+    )
+    return customer;
+  }
+  function logIn(){
+    
+    if(getCustomer()){
+    let accessToken= generateToken();
+    localStorage.setItem("accessToken", accessToken);
+    localStorage.setItem("customer", JSON.stringify(getCustomer()));
+    redirectionAlert("Éxito", "Bienvenido a tu cuenta", "src/assest/Logo.png", );
+    navigate("/userHome");
+  } 
+    else{
+      genericAlert("Error", "Usuario o contraseña incorrectos", "error");
+      
+    }
+  }
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -49,7 +87,22 @@ const Login = () => {
         genericAlert("Error", "Error al registrar el usuario, por favor intenta de nuevo más tarde.", "error");
         throw error;
     }
-} 
+   
+        setValues({
+            name: "",
+            lastName: "",
+            email: "",
+            phone: "",
+            address: "",
+            password: "",
+            confirmPassword: "",
+          });
+    
+    setShowRegister(false);
+    
+  }
+    
+ 
   
   return (
     <section className="forms">
@@ -147,12 +200,13 @@ const Login = () => {
           </section>
         </form>
       ) : (
-        <form className="form-login">
+        <form className="form-login" onSubmit={(e)=> {e.preventDefault(); logIn();}}>
           <span className="icon-register"></span>
           <h1 className="title-login">Iniciar Sesión</h1>
           <div className="login-input-container">
             <label htmlFor="email">Email</label>
             <input
+            onChange={(e) => setEmail(e.target.value)}
               type="email"
               name="email"
               id="email"
@@ -163,6 +217,7 @@ const Login = () => {
           <div className="login-input-container">
             <label htmlFor="password">Contraseña</label>
             <input
+            onChange={(e) => setPassword(e.target.value)}
               type="password"
               name="password"
               id="password"
@@ -172,9 +227,6 @@ const Login = () => {
           </div>
           <div className="button-container">
             <ButtonForms
-              onClick={() => {
-                /* handle login */
-              }}
               type="submit"
               content={"Iniciar Sesion"}
             ></ButtonForms>
