@@ -9,7 +9,6 @@ const UserHome = () => {
             <AsidePanel/>
             <h1>Hola soy el user Home</h1>
             <p>Bienvenido a tu página de inicio.</p>
-
         </main>
     )
 }

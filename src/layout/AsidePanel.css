@@ -6,26 +6,36 @@
 
 .container-elements-aside{
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
-    width: 40%;
-    height: 100%;
+    width: 470px;
+    height: 90vh;
+    box-shadow: 0 5px 10px rgb(85, 83, 83) inset;
     background-color: #000000;
+    border-radius: 30px;
+    margin-left: 5%;
 }
-.container-elements-aside h1{
+.info-user-aside h2{
   color: white;
+  text-align: center;
+}
+.info-user-aside p{
+    color: white;
+    text-align: center;
 }
 .header-aside-img-container{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 20%;
-    background-color: #000000;
-    border-radius: 10px;
+    width: 25%;
+    height: 25%;
+    border: 5px solid #FFD700;
+    border-radius: 100%;
 }
 .header-aside-img-container img{
-    width: 80%;
-    height: 80%;
-    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
 }
 
