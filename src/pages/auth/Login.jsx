@@ -44,14 +44,13 @@ const Login = () => {
     return customer;
   }
   function logIn(){
-    
     if(getCustomer()){
-    let accessToken= generateToken();
-    localStorage.setItem("accessToken", accessToken);
-    localStorage.setItem("customer", JSON.stringify(getCustomer()));
-    redirectionAlert("Éxito", "Bienvenido a tu cuenta", "src/assest/Logo.png", );
-    navigate("/userHome");
-  } 
+      let accessToken= generateToken();
+      localStorage.setItem("accessToken", accessToken);
+      localStorage.setItem("customer", JSON.stringify(getCustomer()));
+      redirectionAlert("Éxito", "Bienvenido a tu cuenta", "src/assets/Logo.png", );
+      navigate("/userHome");
+    } 
     else{
       genericAlert("Error", "Usuario o contraseña incorrectos", "error");
       

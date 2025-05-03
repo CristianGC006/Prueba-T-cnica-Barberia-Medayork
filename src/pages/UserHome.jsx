@@ -1,20 +1,16 @@
-import { useNavigate } from "react-router-dom"
-import { genericAlert } from "../helpers/functions"
 
+import AsidePanel from "../layout/AsidePanel"
+import '../layout/AsidePanel.css'
+import './UserHome.css'
 const UserHome = () => {
-    let navigate = useNavigate()
-    function singOut() {
-        localStorage.removeItem('accessToken')
-        genericAlert('Éxito', 'Has cerrado sesión correctamente', 'success')
-        navigate('/')
-    }
-
+    
     return(
-        <section>
+        <main className="home">
+            <AsidePanel/>
             <h1>Hola soy el user Home</h1>
             <p>Bienvenido a tu página de inicio.</p>
-            <button onClick={singOut}>Cerrar Sesión</button>
-        </section>
+
+        </main>
     )
 }
 export default UserHome;

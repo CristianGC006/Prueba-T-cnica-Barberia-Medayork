@@ -1,3 +1,4 @@
+import ProtectedRoute from "../helpers/ProtectedRoute";
 import PrincipalPage from "../pages/PrincipalPage";
 import UserHome from "../pages/UserHome";
 import Login from "../pages/auth/Login";
