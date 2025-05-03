@@ -7,6 +7,7 @@ import userPfp from "../assets/userPfp.jpg";
 
 const AsidePanel = () => {
     let navigate = useNavigate()
+    let user = JSON.parse(localStorage.getItem('customer'))
     function singOut() {
         localStorage.removeItem('accessToken')
         genericAlert('Éxito', 'Has cerrado sesión correctamente', 'success')
@@ -20,7 +21,7 @@ const AsidePanel = () => {
                     <img src={userPfp} alt="" />
                 </div>
                 <div className="info-user-aside">
-                    <h2 className="tittle-aside">Bienvenido <br /> (Nombre del usuario) a Barbers <br />Medayork</h2>
+                    <h2 className="tittle-aside">Bienvenido <br /> {user.name} a Barbers <br />Medayork</h2>
                     <p className="text-aside">Tu estilo, nuestra pasión.</p>
                 </div>
                 <OptionsHome type={"button"} content={"Citas"} onclick={"#"}/>

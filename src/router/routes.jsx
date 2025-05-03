@@ -15,6 +15,7 @@ export let routes=[
     },
     {
         path:"userHome",
-        element:<UserHome/>
-    }
+        element:<ProtectedRoute><UserHome/></ProtectedRoute>
+    },
+    
 ]
