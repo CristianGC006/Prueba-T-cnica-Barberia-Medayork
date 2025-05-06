@@ -1,0 +1,45 @@
+.service-card {
+    background-color: rgb(7, 7, 7);
+    border-radius: 12px;
+    padding: 10px;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 2px solid transparent;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.service-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.service-card.selected {
+    border-color: #FFD700;
+    background-color: #2f2f2f;
+}
+
+.service-name {
+    color: #ffffff;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.service-duration {
+    color: #ffffff;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.service-price {
+    color: #FFD700;
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.service-description {
+    color: #ffffff;
+    font-size: 10px;
+    line-height: 1.4;
+}

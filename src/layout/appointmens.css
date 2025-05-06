@@ -1,0 +1,105 @@
+.appointments-container {
+    flex: 1;
+    padding: 20px;
+    background-color: #ffffff;
+    height: 100%;
+}
+
+.appointments-title {
+    color: #FFD700;
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.appointment-section {
+    background-color: rgb(255, 255, 255);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.appointment-section h2 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.barbers-grid,
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    
+}
+.datetime-selector {
+    display: grid;
+    grid-template-columns: repeat(2, 48%);
+    gap: 4%;
+}
+.date-picker,
+.time-picker {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.date-picker label,
+.time-picker label {
+    color: #333;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.date-picker input,
+.time-picker input {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.book-button {
+    background-color: #FFD700;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 90%;
+    max-width: 300px;
+    margin: 20px auto;
+    display: block;
+}
+
+.book-button:hover:not(:disabled) {
+    background-color: #e6c200;
+    transform: translateY(-2px);
+}
+
+.book-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+    .appointments-container {
+        padding: 15px;
+        margin-right: 2%;
+    }
+    .datetime-selector {
+        grid-template-columns: 100%;
+        gap: 15px;
+    }
+    .appointment-section {
+        width: 100%;
+    }
+}

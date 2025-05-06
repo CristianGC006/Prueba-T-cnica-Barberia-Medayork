@@ -22,7 +22,7 @@ const AsidePanel = () => {
     }
 
     return(
-        <aside>
+        <aside className="aside">
         <section className="container-elements-aside">
             <div className="header-aside-img-container">
                 <img src={userPfp} alt="" />

@@ -1,20 +1,22 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-.container-elements-aside{
+.aside{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 470px;
-    height: 90vh;
-    box-shadow: 0 5px 10px rgb(85, 83, 83) inset;
+    width: 470px;  
+    height: 1300px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgb(132, 143, 31) inset;
     background-color: #000000;
-    border-radius: 30px;
-    margin-left: 5%;
+
+}
+.container-elements-aside{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;  
+  position: fixed;
+  top: 10;
 }
 .info-user-aside h2{
   color: white;
