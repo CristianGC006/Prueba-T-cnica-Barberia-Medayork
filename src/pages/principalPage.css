@@ -7,3 +7,446 @@ body{
     color: #fff;
     font-family: 'Arial', sans-serif;
 }
+/* Estilos generales */
+.principal-page {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  .hero-section {
+    height: 80vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../../public/backgroundForm.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 0 20px;
+  }
+  
+  .hero-content {
+    max-width: 800px;
+  }
+  
+  .hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    font-weight: 300;
+  }
+  
+  .cta-button {
+    display: inline-block;
+    background-color: #FFD700;
+    color: #000;
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid #FFD700;
+  }
+  
+  .cta-button:hover {
+    background-color: transparent;
+    color: #FFD700;
+  }
+  
+  /* Secciones comunes */
+  .contact-section {
+    padding: 80px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center
+  }
+  
+  .section-title {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  
+  .section-title h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .section-title h2::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 3px;
+    background-color: #FFD700;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .section-title p {
+    color: #666;
+    font-size: 1.1rem;
+  }
+  
+  /* Sección de Servicios */
+  .services-section {
+    background-color: #f9f9f9;
+  }
+  
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .service-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .service-card:hover {
+    transform: translateY(-10px);
+  }
+  
+  .service-icon {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .service-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  .service-card p {
+    color: #666;
+  }
+  
+  /* Sección de Barberos */
+  .barbers-section {
+    background-color: white;
+  }
+  
+  .barbers-preview {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto 40px;
+  }
+  
+  .barber-preview-card {
+    width: 300px;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+  }
+  
+  .barber-preview-card:hover {
+    transform: translateY(-10px);
+  }
+  
+  .barber-image-placeholder {
+    width: 200px;
+    height: 200px;
+    background-color: #ddd;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+  }
+  
+  .barber-preview-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .barber-preview-card p {
+    color: #666;
+  }
+  
+  .view-more-container {
+    text-align: center;
+  }
+  
+  .view-more-button {
+    display: inline-block;
+    background-color: transparent;
+    color: #333;
+    border: 2px solid #FFD700;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  
+  .view-more-button:hover {
+    background-color: #FFD700;
+    color: #000;
+  }
+  
+  /* Sección de Testimonios */
+  .testimonials-section {
+    background-color: #f9f9f9;
+  }
+  
+  .testimonials-container {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .testimonial-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    width: 300px;
+  }
+  
+  .testimonial-content {
+    margin-bottom: 20px;
+    position: relative;
+  }
+  
+  .testimonial-content p {
+    font-style: italic;
+    color: #555;
+  }
+  
+  .testimonial-content p::before,
+  .testimonial-content p::after {
+    content: '"';
+    font-size: 1.5rem;
+    color: #FFD700;
+  }
+  
+  .author-name {
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+  
+  .author-info {
+    color: #666;
+    font-size: 0.9rem;
+  }
+  
+  /* Sección de Contacto */
+  .contact-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .contact-info {
+    flex: 1;
+    min-width: 300px;
+  }
+  
+  .contact-info h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .contact-info p {
+    margin-bottom: 10px;
+    color: #666;
+  }
+  
+  .address, .phone, .hours {
+    margin-bottom: 15px;
+    position: relative;
+    padding-left: 30px;
+  }
+  
+  .address::before, .phone::before, .hours::before {
+    position: absolute;
+    left: 0;
+    top: 2px;
+    font-size: 1.2rem;
+  }
+  
+  .address::before {
+    content: '📍';
+  }
+  
+  .phone::before {
+    content: '📞';
+  }
+  
+  .hours::before {
+    content: '🕒';
+  }
+  
+  .map-placeholder {
+    flex: 1;
+    min-width: 300px;
+  }
+  
+  .map-image {
+    width: 100%;
+    height: 300px;
+    background-color: #ddd;
+    border-radius: 10px;
+  }
+  
+  /* Footer */
+  .main-footer {
+    background-color: #222;
+    color: white;
+    padding: 60px 20px 20px;
+  }
+  
+  .footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto 40px;
+    gap: 30px;
+  }
+  
+  .footer-logo, .footer-links, .footer-social {
+    flex: 1;
+    min-width: 250px;
+  }
+  
+  .footer-logo h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #FFD700;
+  }
+  
+  .footer-links h4, .footer-social h4 {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .footer-links h4::after, .footer-social h4::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 2px;
+    background-color: #FFD700;
+    bottom: -10px;
+    left: 0;
+  }
+  
+  .footer-links ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-links ul li {
+    margin-bottom: 10px;
+  }
+  
+  .footer-links ul li a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-links ul li a:hover {
+    color: #FFD700;
+  }
+  
+  .social-icons {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #333;
+    color: white;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  
+  .social-icon:hover {
+    background-color: #FFD700;
+    color: #000;
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #444;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero-content h1 {
+      font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+      font-size: 1.2rem;
+    }
+    
+    section {
+      padding: 60px 20px;
+    }
+    
+    .section-title h2 {
+      font-size: 2rem;
+    }
+    
+    .contact-section {
+      flex-direction: column;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .hero-content h1 {
+      font-size: 2rem;
+    }
+    
+    .cta-button {
+      padding: 12px 25px;
+      font-size: 1rem;
+    }
+    
+    .service-card, .barber-preview-card, .testimonial-card {
+      width: 100%;
+    }
+  }
