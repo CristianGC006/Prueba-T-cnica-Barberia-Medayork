@@ -4,6 +4,7 @@ import BarberCard from "../components/BarberCards";
 import ServiceCard from "../components/ServiceCard";
 import "./appointmens.css";
 import { genericAlert } from "../helpers/functions";
+import { Navigate } from "react-router-dom";
 
 const Appointments = () => {
   const [barbers, setBarbers] = useState([]);
@@ -56,7 +57,7 @@ const Appointments = () => {
       })
       .then((data) => {
         genericAlert("Éxito", "Cita reservada con éxito", "success");
-        // Redirigir al historial o hacer otra acción
+        console.log("Cita reservada:", data);
       })
       .catch((error) => {
         console.error("Error:", error);
