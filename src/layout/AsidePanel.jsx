@@ -13,22 +13,29 @@ const AsidePanel = () => {
         genericAlert('Éxito', 'Has cerrado sesión correctamente', 'success')
         navigate('/')
     }
+    function goToAppointments() {
+        navigate('/appointments')
+    }
+
+    function goToHistory() {
+        navigate('/history')
+    }
 
     return(
         <aside>
-            <section className="container-elements-aside">
-                <div className="header-aside-img-container">
-                    <img src={userPfp} alt="" />
-                </div>
-                <div className="info-user-aside">
-                    <h2 className="tittle-aside">Bienvenido <br /> {user.name} a Barbers <br />Medayork</h2>
-                    <p className="text-aside">Tu estilo, nuestra pasión.</p>
-                </div>
-                <OptionsHome type={"button"} content={"Citas"} onclick={"#"}/>
-                <OptionsHome type={"button"} content={"Historial"} onclick={"#"}/>
-                <OptionsHome type={"button"} content={"Cerrar Sesion"} onclick={singOut}/>
-            </section>
-        </aside>
+        <section className="container-elements-aside">
+            <div className="header-aside-img-container">
+                <img src={userPfp} alt="" />
+            </div>
+            <div className="info-user-aside">
+                <h2 className="tittle-aside">Bienvenido <br /> {user.name} a Barbers <br />Medayork</h2>
+                <p className="text-aside">Tu estilo, nuestra pasión.</p>
+            </div>
+            <OptionsHome type={"button"} content={"Citas"} onclick={goToAppointments}/>
+            <OptionsHome type={"button"} content={"Historial"} onclick={goToHistory}/>
+            <OptionsHome type={"button"} content={"Cerrar Sesion"} onclick={singOut}/>
+        </section>
+    </aside>
     )
 
 }
