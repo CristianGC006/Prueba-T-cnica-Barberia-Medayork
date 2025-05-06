@@ -9,7 +9,7 @@ const ServiceCard = ({ service, isSelected, onSelect }) => {
             <h3 className="service-name">{service.name}</h3>
             <p className="service-duration">{service.duration} minutos</p>
             <p className="service-price">${service.price}</p>
-            <p className="service-description">{service.description}</p>
+            <img className="service-image">{}</img>
         </div>
     );
 };

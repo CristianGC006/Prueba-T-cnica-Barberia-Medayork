@@ -1,6 +1,15 @@
 import './BarberCards.css';
-
+import james from "../assets/james.jpg";
+import david from "../assets/david.jpg";
+import carlos from "../assets/carlos.jpg";
+import robert from "../assets/robert.jpg";
 const BarberCard = ({ barber, isSelected, onSelect }) => {
+    const barberImages={
+        1:carlos,
+        2:james,
+        3:david,
+        4:robert,
+    }
     return (
         <div 
             className={`barber-card ${isSelected ? 'selected' : ''}`}
@@ -8,7 +17,7 @@ const BarberCard = ({ barber, isSelected, onSelect }) => {
         >
             <div className="barber-image-container">
                 <img 
-                    src={barber.image || "ruta-imagen-default"} 
+                    src={barberImages[barber.id]|| "ruta-imagen-default"} 
                     alt={`Barbero ${barber.name}`} 
                     className="barber-image"
                 />
