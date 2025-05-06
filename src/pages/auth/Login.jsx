@@ -50,25 +50,14 @@ const Login = () => {
   }
   
   // Buscar cliente por email y password
-  function getCustomer() {
-    return customers.find(
-      (item) => item.email === loginValues.email && item.password === loginValues.password
-    );
-  }
+  // function getCustomer() {
+  //   return customers.find(
+  //     (item) => item.email === loginValues.email && item.password === loginValues.password
+  //   );
+  // }
   
-  // Manejar inicio de sesión
-  function logIn() {
-    const customer = getCustomer();
-    if (customer) {
-      let accessToken = generateToken();
-      localStorage.setItem("Token", accessToken);
-      localStorage.setItem("customer", JSON.stringify(customer));
-      redirectionAlert("Éxito", "Bienvenido a tu cuenta", "src/assets/Logo.png");
-      navigate("/userHome");
-    } else {
-      genericAlert("Error", "Usuario o contraseña incorrectos", "error");
-    }
-  }
+ 
+ 
 
   // Manejar cambios en el formulario de registro
   const handleRegisterChange = (event) => {
@@ -158,11 +147,64 @@ const Login = () => {
   };
 
   // Manejar envío del formulario de login
-  const handleLogin = (event) => {
-    event.preventDefault();
-    logIn();
-  };
-  
+    // Manejar envío del formulario de login
+    const handleLogin = async (event) => {
+      event.preventDefault();
+      
+      try {
+        // Primero intentamos verificar si es un cliente regular (por email)
+        const customerResponse = await fetch(urlApi);
+        const customers = await customerResponse.json();
+        
+        const customer = customers.find(
+          (item) => item.email === loginValues.email && item.password === loginValues.password
+        );
+        
+        if (customer) {
+          // Es un cliente regular
+          let accessToken = generateToken();
+          localStorage.setItem("Token", accessToken);
+          localStorage.setItem("customer", JSON.stringify(customer));
+          redirectionAlert("Éxito", "Bienvenido a tu cuenta", "src/assets/Logo.png");
+          navigate("/userHome");
+          return;
+        }
+        
+        // Si no es cliente, verificamos si es un usuario administrador (por username o email)
+        const userResponse = await fetch("https://barbersfakeapi.onrender.com/users");
+        const users = await userResponse.json();
+        
+        const user = users.find(
+          (user) => 
+            (user.email === loginValues.email || user.username === loginValues.email) && 
+            user.password === loginValues.password
+        );
+        
+        if (user) {
+          // Es un usuario administrador
+          let accessToken = generateToken();
+          localStorage.setItem("Token", accessToken);
+          localStorage.setItem("admin", JSON.stringify(user));
+          
+          
+          // Redirigir según el tipo de usuario
+          if (user.role === "admin") {
+            navigate("/adminPanel");
+          } else {
+            navigate("/userHome");
+          }
+          redirectionAlert("Éxito", "Bienvenido a tu cuenta", "src/assets/Logo.png");
+          return;
+        }
+        
+        // Si no se encontró en ninguno de los dos endpoints
+        genericAlert("Error", "Usuario o contraseña incorrectos", "error");
+        
+      } catch (error) {
+        console.error("Error al iniciar sesión:", error);
+        genericAlert("Error", "Error al conectar con el servidor", "error");
+      }
+    };
   return (
     <section className="forms">
       {showRegister ? (
@@ -272,10 +314,10 @@ const Login = () => {
           <div className="login-input-container">
             <label htmlFor="login-email">Email</label>
             <input
-              type="email"
+              type="text"
               name="email"
               id="login-email"
-              placeholder="correo@correo.com"
+              placeholder="Correo electronico o nombre de usuario"
               value={loginValues.email}
               onChange={handleLoginChange}
               required

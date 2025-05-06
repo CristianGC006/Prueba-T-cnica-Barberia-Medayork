@@ -4,6 +4,8 @@ import UserHome from "../pages/UserHome";
 import Login from "../pages/auth/Login";
 import Appointments from "../layout/Appointmens";
 import History from "../layout/History";
+import AdminPanel from "../pages/auth/AdminPanel";
+import AdminProtectedRoute from "../helpers/AdminProtectedRoute";
 /*Rutas para el flujo de la App*/ 
 export let routes=[
     {
@@ -26,5 +28,9 @@ export let routes=[
         path:"history",
         element:<ProtectedRoute><History/></ProtectedRoute>
     },
+    {
+        path:"adminPanel",
+        element:<AdminProtectedRoute><AdminPanel/></AdminProtectedRoute>
+    }
     
 ]
