@@ -13,6 +13,8 @@ const Appointments = () => {
   const [selectedServiceId, setSelectedServiceId] = useState(null);
   const [selectedDate, setSelectedDate] = useState("");
   const [selectedTime, setSelectedTime] = useState("");
+  const [todaysAppointments, setTodaysAppointments] = useState([]);
+
   useEffect(() => {
     // Cargar barberos
     fetch("https://barbersfakeapi.onrender.com/barbers")
@@ -25,6 +27,15 @@ const Appointments = () => {
       .then((response) => response.json())
       .then((data) => setServices(data))
       .catch((error) => console.error("Error al cargar servicios:", error));
+    // Cargar citas del día
+    fetch("https://barbersfakeapi.onrender.com/appointments")
+      .then((response) => response.json())
+      .then((data) => {
+        const today = new Date().toISOString().split("T")[0];
+        const filtered = data.filter(app => app.date === today);
+        setTodaysAppointments(filtered);
+      })
+      .catch((error) => console.error("Error al cargar citas:", error));
   }, []);
 
   //Registro de citas en  su historial
@@ -70,6 +81,22 @@ const Appointments = () => {
       <AsidePanel />
       <div className="appointments-container">
         <h1 className="appointments-title">Reserva tu Cita</h1>
+        
+        {/* Listado de citas del día */}
+        <section className="appointment-section">
+          <h2>Citas del Día</h2>
+          <ul>
+            {todaysAppointments.length === 0 ? (
+              <li>No hay citas para hoy.</li>
+            ) : (
+              todaysAppointments.map((app) => (
+                <li key={app.id}>
+                  {app.time} - {app.customerName} con {app.barberName} ({app.serviceName})
+                </li>
+              ))
+            )}
+          </ul>
+        </section>
         <section className="appointment-section">
           <h2>Selecciona tu Barbero</h2>
           <div className="barbers-grid">
@@ -139,3 +166,4 @@ const Appointments = () => {
 };
 
 export default Appointments;
+

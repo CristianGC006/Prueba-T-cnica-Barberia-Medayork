@@ -85,7 +85,6 @@ const AdminPanel = () => {
           <div className="admin-avatar">
             <span>{admin.username}</span>
           </div>
-          <h2>{admin.name}</h2>
           <p>Administrador</p>
         </div>
         
@@ -129,11 +128,13 @@ const AdminPanel = () => {
               <table>
                 <thead>
                   <tr>
+                    <th>ID</th>
                     <th>Fecha</th>
                     <th>Hora</th>
                     <th>Cliente</th>
                     <th>Barbero</th>
                     <th>Servicio</th>
+                    <th>Precio</th>
                     <th>Estado</th>
                     <th>Acciones</th>
                   </tr>
@@ -141,11 +142,14 @@ const AdminPanel = () => {
                 <tbody>
                   {appointments.map(appointment => (
                     <tr key={appointment.id}>
+                      <td>#{appointment.id}</td>
                       <td>{new Date(appointment.date).toLocaleDateString()}</td>
                       <td>{appointment.time}</td>
-                      <td>{appointment.customerName || "Cliente"}</td>
+                      <td>{appointment.name || "Cliente"}</td>
+                      <td>{appointment.phone || "N/A"}</td>
                       <td>{appointment.barberName}</td>
                       <td>{appointment.serviceName}</td>
+                      <td>${services.find(s => s.id === appointment.serviceId)?.price || "N/A"}</td>
                       <td>
                         <span className={`status-badge ${appointment.status.toLowerCase()}`}>
                           {appointment.status}
@@ -156,12 +160,14 @@ const AdminPanel = () => {
                           <button 
                             onClick={() => updateAppointmentStatus(appointment.id, "Completada")}
                             className="complete-btn"
+                            disabled={appointment.status === "Completada" || appointment.status === "Cancelada"}
                           >
                             Completar
                           </button>
                           <button 
                             onClick={() => updateAppointmentStatus(appointment.id, "Cancelada")}
                             className="cancel-btn"
+                            disabled={appointment.status === "Cancelada"}
                           >
                             Cancelar
                           </button>

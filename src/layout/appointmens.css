@@ -89,7 +89,14 @@
     background-color: #ccc;
     cursor: not-allowed;
 }
-
+.appointment-section h2 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+.appointment-section li {
+     color: #000000;
+}
 @media (max-width: 768px) {
     .appointments-container {
         padding: 15px;
