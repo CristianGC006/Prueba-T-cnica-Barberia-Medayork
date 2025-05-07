@@ -1,0 +1,39 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    height: 160px; 
+    width: 100%;  
+    align-items: center;
+    padding: 10px 20px;
+    background-color: rgb(255, 255, 255); /* Fondo blanco */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+  }
+  
+  .header-logo .logo {
+    height: 150px; 
+    image-resolution: from-image;
+
+  }
+  
+  .header-nav .nav-list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .header-nav .nav-item {
+    margin: 0 15px; /* Espaciado entre los elementos */
+  }
+  
+  .header-nav .nav-item a {
+    text-decoration: none;
+    color: rgb(0, 0, 0); /* Color del texto */
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  .header-nav .nav-item a:hover {
+    color: #FFD700; /* Cambia el color al pasar el mouse */
+  }

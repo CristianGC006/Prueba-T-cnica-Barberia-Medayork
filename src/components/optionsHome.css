@@ -1,0 +1,55 @@
+.options-home-button{
+    background-color: rgb(255, 255, 255) ; /* Green */
+    border: none;
+    color: #000000;
+    outline: #FFD700 5px solid;
+    padding: 15px 32px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 25px;
+    width: 40%;
+    height: 50px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 10px 2px;
+    cursor: pointer;
+    content: '';
+    position: relative;
+}
+.options-home-button:active{
+    background-color: #FFD700; 
+    color: black;
+    box-shadow: white 0px 0px 10px;
+    transform: translateY(4px);
+}
+.options-home-button::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff200; 
+    border-radius: 25px;
+    opacity: 0.5;
+    z-index: -1;
+}
+.options-home-button::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffd500; /* Green */
+    border-radius: 25px;
+    opacity: 0.5;
+    z-index: -1;
+}
+.options-home-button:hover{
+    color: black;
+    box-shadow: white 0px 5px 10px inset;
+    transform: translateY(0.9px);
+    transition: all 0.3s ease-in-out;
+}
